@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri + React</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+<!--<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let but = document.getElementById("but");
+        let video = document.getElementById("vid");
+        let mediaDevices = navigator.mediaDevices;
+        vid.muted = true;
+        but.addEventListener("click", () => {
+
+            // Accessing the user camera and video.
+            mediaDevices
+                .getUserMedia({
+                    video: true,
+                    audio: true,
+                })
+                .then((stream) => {
+
+                    // Changing the source of video to current stream.
+                    video.srcObject = stream;
+                    video.addEventListener("loadedmetadata", () => {
+                        video.play();
+                    });
+
+                })
+                .catch(alert);
+        });
+    });
+</script>
+<style>
+    div {
+        width: 1250px;
+        height: 600px;
+        border: 1px solid black;
+        position: relative;
+    }
+
+    video {
+        width: 1250px;
+        height: 600px;
+        object-fit: cover;
+    }
+</style>
+<div>
+    <video id="vid"></video>
+</div>
+<br />
+<button id="but" autoplay>
+    Open WebCam
+</button>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    <video id="video" autoplay></video><br>
+    <button id="flip">flip</button>
+
+    <script>
+
+        var video = document.getElementById("video");
+        var flip = document.getElementById("flip");
+
+        // Get access to the camera!
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                video.srcObject = stream;
+            });
+        }
+
+        // Flip video
+        var flipped = false;
+        flip.onclick = function () {
+            var factor = flipped ? "1" : "-1";
+            video.style.webkitTransform = "scaleX(" + factor + ")";
+            video.style.transform = "scaleX(" + factor + ")";
+            flipped = !flipped;
+        };
+
+    </script>
+
+</body>
+</html>

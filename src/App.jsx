@@ -28,7 +28,7 @@ function App() {
         </a>
       </div> */}
 
-      <p>Please show your face to mark your attendance as Present</p>
+      <p>Please show your face to mark your attendance as automatically</p>
 
       <form
       
